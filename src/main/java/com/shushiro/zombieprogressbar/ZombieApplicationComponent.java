@@ -1,4 +1,4 @@
-package com.zombieprogressbar.zombieprogressbar;
+package com.shushiro.zombieprogressbar;
 
 import com.intellij.ide.ui.LafManager;
 
