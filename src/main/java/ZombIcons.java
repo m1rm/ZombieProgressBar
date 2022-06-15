@@ -1,5 +1,3 @@
-package com.shushiro.zombieprogressbar;
-
 import com.intellij.openapi.util.IconLoader;
 
 import javax.swing.*;

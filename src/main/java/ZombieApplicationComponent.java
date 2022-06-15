@@ -1,5 +1,3 @@
-package com.shushiro.zombieprogressbar;
-
 import com.intellij.ide.ui.LafManager;
 
 import javax.swing.*;
