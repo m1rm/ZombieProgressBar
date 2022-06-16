@@ -70,7 +70,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         g.setColor(new JBColor(Gray._240.withAlpha(50), Gray._128.withAlpha(50)));
         int w = c.getWidth();
         int h = c.getPreferredSize().height;
-        if (!isEven(c.getHeight() - h)) h++;
+        if (isUneven(c.getHeight() - h)) h++;
 
         g.setPaint(BLOODRED);
 
@@ -153,7 +153,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         Insets b = progressBar.getInsets(); // area for border
         int w = progressBar.getWidth();
         int h = progressBar.getPreferredSize().height;
-        if (!isEven(c.getHeight() - h)) h++;
+        if (isUneven(c.getHeight() - h)) h++;
 
         int barRectWidth = w - (b.right + b.left);
         int barRectHeight = h - (b.top + b.bottom);
@@ -245,8 +245,8 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         return JBUI.scale(16);
     }
 
-    private static boolean isEven(int value) {
-        return value % 2 == 0;
+    private static boolean isUneven(int value) {
+        return value % 2 != 0;
     }
 }
 
