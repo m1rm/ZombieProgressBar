@@ -1,3 +1,5 @@
+package com.shushiro.zombieprogressbar;
+
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.openapi.util.ScalableIcon;
 import com.intellij.ui.Gray;

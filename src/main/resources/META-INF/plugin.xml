@@ -1,11 +1,16 @@
 <idea-plugin>
-    <id>shushiro.ZombieProgressBar</id>
+    <id>com.shushiro.zombieprogressbar</id>
     <name>ZombieProgressBar</name>
     <vendor email="themagicdoublem@googlemail.com">Shushiro</vendor>
     <description><![CDATA[
     A simple Zombie Progress Bar for IntelliJ & IntelliJ based IDEs.
   ]]></description>
     <depends>com.intellij.modules.platform</depends>
+    <applicationListeners>
+        <listener class="com.shushiro.zombieprogressbar.ZombieProgressListener" topic="com.intellij.ide.ui.LafManagerListener"/>
+        <listener class="com.shushiro.zombieprogressbar.ZombieProgressListener"
+                  topic="com.intellij.ide.plugins.DynamicPluginListener"/>
+    </applicationListeners>
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
 </idea-plugin>

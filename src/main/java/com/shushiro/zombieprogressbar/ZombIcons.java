@@ -1,3 +1,5 @@
+package com.shushiro.zombieprogressbar;
+
 import com.intellij.util.ui.JBImageIcon;
 import javax.swing.*;
 
