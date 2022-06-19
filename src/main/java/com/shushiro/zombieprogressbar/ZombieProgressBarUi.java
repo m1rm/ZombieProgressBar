@@ -1,7 +1,6 @@
 package com.shushiro.zombieprogressbar;
 
 import com.intellij.openapi.ui.GraphicsConfig;
-import com.intellij.openapi.util.ScalableIcon;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
 import com.intellij.util.ui.GraphicsUtil;
@@ -128,7 +127,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
             g.fill(area);
         }
 
-        Icon scaledIcon = velocity > 0 ? ((ScalableIcon) iconForward) : ((ScalableIcon) iconReversed) ;
+        Icon scaledIcon = velocity > 0 ? iconForward: iconReversed;
 
         scaledIcon.paintIcon(progressBar, g, offset2 - JBUI.scale(10), -JBUI.scale(6));
 
