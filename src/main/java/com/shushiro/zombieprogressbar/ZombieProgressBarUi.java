@@ -18,9 +18,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.geom.*;
 
 public class ZombieProgressBarUi extends BasicProgressBarUI {
-    private static final float ONE_OVER_SEVEN = 1f / 7;
     private static final Color BLOODRED = new Color(128, 47, 47);
-
 
     @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass", "UnusedDeclaration"})
     public static ComponentUI createUI(JComponent c) {
@@ -52,6 +50,9 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
     private volatile int offset = 0;
     private volatile int offset2 = 0;
     private volatile int velocity = 1;
+
+    private ImageIcon iconForward = ZombieResourceLoader.getIcon();
+    private ImageIcon iconReversed = ZombieResourceLoader.getReversedIcon();
     @Override
     protected void paintIndeterminate(Graphics g2d, JComponent c) {
 
@@ -122,7 +123,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
             g.fill(area);
         }
 
-        Icon scaledIcon = velocity > 0 ? ((ScalableIcon) ZombIcons.ZOMBIE_ICON) : ((ScalableIcon) ZombIcons.RZOMBIE_ICON) ;
+        Icon scaledIcon = velocity > 0 ? ((ScalableIcon) iconForward) : ((ScalableIcon) iconReversed) ;
 
         scaledIcon.paintIcon(progressBar, g, offset2 - JBUI.scale(10), -JBUI.scale(6));
 
@@ -188,7 +189,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         g2.setPaint(BLOODRED);
 
 
-        ZombIcons.ZOMBIE_ICON.paintIcon(progressBar, g2, amountFull - JBUI.scale(10), -JBUI.scale(6));
+        iconForward.paintIcon(progressBar, g2, amountFull - JBUI.scale(10), -JBUI.scale(6));
         g2.fill(new RoundRectangle2D.Float(2f*off,2f*off, amountFull - JBUI.scale(5f), h - JBUI.scale(5f), JBUI.scale(7f), JBUI.scale(7f)));
         g2.translate(0, -(c.getHeight() - h)/2);
 
