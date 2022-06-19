@@ -16,10 +16,10 @@ public final class ZombieResourceLoader {
     }
 
     public static ImageIcon getIcon() {
-        return getIconInternal("zombie.gif");
+        return getIconInternal("24x24_zombie.gif");
     }
 
-    public static ImageIcon getReversedIcon() { return getIconInternal("rzombie.gif"); }
+    public static ImageIcon getReversedIcon() { return getIconInternal("24x24_rzombie.gif"); }
 
     public static Optional<URL> getResource(final String resourceName) {
         return Optional.ofNullable(ZombieResourceLoader.class.getClassLoader().getResource(resourceName));
