@@ -19,6 +19,13 @@ import java.awt.geom.*;
 
 public class ZombieProgressBarUi extends BasicProgressBarUI {
     private static final Color BLOODRED = new Color(128, 47, 47);
+    private final ImageIcon iconForward;
+    private final ImageIcon iconReversed;
+
+    public ZombieProgressBarUi() {
+        iconForward = ZombieResourceLoader.getIcon();
+        iconReversed = ZombieResourceLoader.getReversedIcon();
+    }
 
     @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass", "UnusedDeclaration"})
     public static ComponentUI createUI(JComponent c) {
@@ -51,8 +58,6 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
     private volatile int offset2 = 0;
     private volatile int velocity = 1;
 
-    private ImageIcon iconForward = ZombieResourceLoader.getIcon();
-    private ImageIcon iconReversed = ZombieResourceLoader.getReversedIcon();
     @Override
     protected void paintIndeterminate(Graphics g2d, JComponent c) {
 
