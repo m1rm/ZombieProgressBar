@@ -194,7 +194,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         g2.setPaint(BLOODRED);
 
 
-        iconForward.paintIcon(progressBar, g2, amountFull - JBUIScale.scale(10), -JBUIScale.scale(2));
+        iconForward.paintIcon(progressBar, g2, amountFull - JBUIScale.scale(7), -JBUIScale.scale(2));
         g2.fill(new RoundRectangle2D.Float(2f*off,2f*off, amountFull - JBUIScale.scale(5f), h - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
         g2.translate(0, -(c.getHeight() - h)/2);
 
