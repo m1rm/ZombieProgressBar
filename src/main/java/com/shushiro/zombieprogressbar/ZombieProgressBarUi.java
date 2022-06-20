@@ -130,7 +130,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
 
         Icon scaledIcon = velocity > 0 ? iconForward: iconReversed;
 
-        scaledIcon.paintIcon(progressBar, progressBarRectangle, offset2 - JBUIScale.scale(10), -JBUIScale.scale(6));
+        scaledIcon.paintIcon(progressBar, progressBarRectangle, offset2 - JBUIScale.scale(10), -JBUIScale.scale(2));
 
         progressBarRectangle.draw(new RoundRectangle2D.Float(1f, 1f, w - 2f - 1f, h - 2f -1f, R, R));
         progressBarRectangle.translate(0, -(c.getHeight() - h) / 2);
@@ -194,7 +194,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         g2.setPaint(BLOODRED);
 
 
-        iconForward.paintIcon(progressBar, g2, amountFull - JBUIScale.scale(10), -JBUIScale.scale(6));
+        iconForward.paintIcon(progressBar, g2, amountFull - JBUIScale.scale(10), -JBUIScale.scale(2));
         g2.fill(new RoundRectangle2D.Float(2f*off,2f*off, amountFull - JBUIScale.scale(5f), h - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
         g2.translate(0, -(c.getHeight() - h)/2);
 
