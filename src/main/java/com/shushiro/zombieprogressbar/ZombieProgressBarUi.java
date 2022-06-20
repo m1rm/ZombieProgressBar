@@ -159,12 +159,12 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         }
         final GraphicsConfig config = GraphicsUtil.setupAAPainting(g);
         Insets borderInsets = progressBar.getInsets(); // area for border
-        int w = progressBar.getWidth();
-        int h = progressBar.getPreferredSize().height;
-        if (isUneven(c.getHeight() - h)) h++;
+        int progressBarWidth = progressBar.getWidth();
+        int progressBarHeight = progressBar.getPreferredSize().height;
+        if (isUneven(c.getHeight() - progressBarHeight)) progressBarHeight++;
 
-        int barRectWidth = w - (borderInsets.right + borderInsets.left);
-        int barRectHeight = h - (borderInsets.top + borderInsets.bottom);
+        int barRectWidth = progressBarWidth - (borderInsets.right + borderInsets.left);
+        int barRectHeight = progressBarHeight - (borderInsets.top + borderInsets.bottom);
 
         if (barRectWidth <= 0 || barRectHeight <= 0) {
             return;
@@ -178,24 +178,24 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         g.setColor(background);
         Graphics2D g2 = (Graphics2D)g;
         if (c.isOpaque()) {
-            g.fillRect(0, 0, w, h);
+            g.fillRect(0, 0, progressBarWidth, progressBarHeight);
         }
 
         final float R = JBUIScale.scale(8f);
         final float R2 = JBUIScale.scale(9f);
         final float off = JBUIScale.scale(1f);
 
-        g2.translate(0, (c.getHeight() - h)/2);
+        g2.translate(0, (c.getHeight() - progressBarHeight)/2);
         g2.setColor(progressBar.getForeground());
-        g2.fill(new RoundRectangle2D.Float(0, 0, w - off, h - off, R2, R2));
+        g2.fill(new RoundRectangle2D.Float(0, 0, progressBarWidth - off, progressBarHeight - off, R2, R2));
         g2.setColor(background);
-        g2.fill(new RoundRectangle2D.Float(off, off, w - 2f*off - off, h - 2f*off - off, R, R));
+        g2.fill(new RoundRectangle2D.Float(off, off, progressBarWidth - 2f*off - off, progressBarHeight - 2f*off - off, R, R));
 
         g2.setPaint(BLOODRED);
 
         iconForward.paintIcon(progressBar, g2, amountFull - JBUIScale.scale(7), -JBUIScale.scale(2));
-        g2.fill(new RoundRectangle2D.Float(2f*off,2f*off, amountFull - JBUIScale.scale(5f), h - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
-        g2.translate(0, -(c.getHeight() - h)/2);
+        g2.fill(new RoundRectangle2D.Float(2f*off,2f*off, amountFull - JBUIScale.scale(5f), progressBarHeight - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
+        g2.translate(0, -(c.getHeight() - progressBarHeight)/2);
 
         // Deal with possible text painting
         if (progressBar.isStringPainted()) {
