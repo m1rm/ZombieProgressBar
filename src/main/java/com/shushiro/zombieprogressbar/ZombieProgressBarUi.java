@@ -63,7 +63,7 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         if (!(g2d instanceof Graphics2D)) {
             return;
         }
-        Graphics2D g = (Graphics2D)g2d;
+        Graphics2D progressBarRectangle = (Graphics2D)g2d;
 
 
         Insets b = progressBar.getInsets(); // area for border
@@ -74,31 +74,31 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
             return;
         }
 
-        g.setColor(new JBColor(Gray._240.withAlpha(50), Gray._128.withAlpha(50)));
+        progressBarRectangle.setColor(new JBColor(Gray._240.withAlpha(50), Gray._128.withAlpha(50)));
         int w = c.getWidth();
         int h = c.getPreferredSize().height;
         if (isUneven(c.getHeight() - h)) h++;
 
-        g.setPaint(BLOODRED);
+        progressBarRectangle.setPaint(BLOODRED);
 
         if (c.isOpaque()) {
-            g.fillRect(0, (c.getHeight() - h)/2, w, h);
+            progressBarRectangle.fillRect(0, (c.getHeight() - h)/2, w, h);
         }
-        g.setColor(new JBColor(Gray._165.withAlpha(50), Gray._88.withAlpha(50)));
-        final GraphicsConfig config = GraphicsUtil.setupAAPainting(g);
-        g.translate(0, (c.getHeight() - h) / 2);
+        progressBarRectangle.setColor(new JBColor(Gray._165.withAlpha(50), Gray._88.withAlpha(50)));
+        final GraphicsConfig config = GraphicsUtil.setupAAPainting(progressBarRectangle);
+        progressBarRectangle.translate(0, (c.getHeight() - h) / 2);
         int x = -offset;
 
-        Paint old = g.getPaint();
-        g.setPaint(BLOODRED);
+        Paint old = progressBarRectangle.getPaint();
+        progressBarRectangle.setPaint(BLOODRED);
 
         final float R = JBUI.scale(8f);
         final float R2 = JBUI.scale(9f);
         final Area containingRoundRect = new Area(new RoundRectangle2D.Float(1f, 1f, w - 2f, h - 2f, R, R));
 
-        g.fill(containingRoundRect);
+        progressBarRectangle.fill(containingRoundRect);
 
-        g.setPaint(old);
+        progressBarRectangle.setPaint(old);
         offset = (offset + 1) % getPeriodLength();
         offset2 += velocity;
         if (offset2 <= 2) {
@@ -111,36 +111,36 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
 
         Area area = new Area(new Rectangle2D.Float(0, 0, w, h));
         area.subtract(new Area(new RoundRectangle2D.Float(1f, 1f, w - 2f, h - 2f, R, R)));
-        g.setPaint(Gray._128);
+        progressBarRectangle.setPaint(Gray._128);
 
         if (c.isOpaque()) {
-            g.fill(area);
+            progressBarRectangle.fill(area);
         }
 
         area.subtract(new Area(new RoundRectangle2D.Float(0, 0, w, h, R2, R2)));
 
         Container parent = c.getParent();
         Color background = parent != null ? parent.getBackground() : UIUtil.getPanelBackground();
-        g.setPaint(background);
+        progressBarRectangle.setPaint(background);
 
         if (c.isOpaque()) {
-            g.fill(area);
+            progressBarRectangle.fill(area);
         }
 
         Icon scaledIcon = velocity > 0 ? iconForward: iconReversed;
 
-        scaledIcon.paintIcon(progressBar, g, offset2 - JBUI.scale(10), -JBUI.scale(6));
+        scaledIcon.paintIcon(progressBar, progressBarRectangle, offset2 - JBUI.scale(10), -JBUI.scale(6));
 
-        g.draw(new RoundRectangle2D.Float(1f, 1f, w - 2f - 1f, h - 2f -1f, R, R));
-        g.translate(0, -(c.getHeight() - h) / 2);
+        progressBarRectangle.draw(new RoundRectangle2D.Float(1f, 1f, w - 2f - 1f, h - 2f -1f, R, R));
+        progressBarRectangle.translate(0, -(c.getHeight() - h) / 2);
 
         // Deal with possible text painting
         if (progressBar.isStringPainted()) {
             if (progressBar.getOrientation() == SwingConstants.HORIZONTAL) {
-                paintString(g, b.left, b.top, barRectWidth, barRectHeight, boxRect.x, boxRect.width);
+                paintString(progressBarRectangle, b.left, b.top, barRectWidth, barRectHeight, boxRect.x, boxRect.width);
             }
             else {
-                paintString(g, b.left, b.top, barRectWidth, barRectHeight, boxRect.y, boxRect.height);
+                paintString(progressBarRectangle, b.left, b.top, barRectWidth, barRectHeight, boxRect.y, boxRect.height);
             }
         }
         config.restore();
