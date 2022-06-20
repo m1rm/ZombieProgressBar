@@ -1,6 +1,9 @@
-# ZombieProgressBar
+# ZombieProgressBar ![Zombie Progress Bar Gif](src/main/resources/28x28_zombie.gif?raw=true "ZombieProgressBar")
 
-My take on a lovely Zombie progress bar for IntelliJ and IntelliJ based IDEs.  
+
+![Zombie Progress Bar Screenshot](src/main/resources/barScreenshot?raw=true "ZombieProgressBar")
+
+My take on a lovely zombie progress bar for IntelliJ and IntelliJ based IDEs.  
 
 ## Acknowledgements
 Made possible by and based on: 
