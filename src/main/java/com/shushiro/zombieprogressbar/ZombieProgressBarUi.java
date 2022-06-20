@@ -67,9 +67,9 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         Graphics2D progressBarRectangle = (Graphics2D)g2d;
 
 
-        Insets b = progressBar.getInsets(); // area for border
-        int barRectWidth = progressBar.getWidth() - (b.right + b.left);
-        int barRectHeight = progressBar.getHeight() - (b.top + b.bottom);
+        Insets progressBarInsets = progressBar.getInsets(); // area for border
+        int barRectWidth = progressBar.getWidth() - (progressBarInsets.right + progressBarInsets.left);
+        int barRectHeight = progressBar.getHeight() - (progressBarInsets.top + progressBarInsets.bottom);
 
         if (barRectWidth <= 0 || barRectHeight <= 0) {
             return;
@@ -138,10 +138,10 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         // Deal with possible text painting
         if (progressBar.isStringPainted()) {
             if (progressBar.getOrientation() == SwingConstants.HORIZONTAL) {
-                paintString(progressBarRectangle, b.left, b.top, barRectWidth, barRectHeight, boxRect.x, boxRect.width);
+                paintString(progressBarRectangle, progressBarInsets.left, progressBarInsets.top, barRectWidth, barRectHeight, boxRect.x, boxRect.width);
             }
             else {
-                paintString(progressBarRectangle, b.left, b.top, barRectWidth, barRectHeight, boxRect.y, boxRect.height);
+                paintString(progressBarRectangle, progressBarInsets.left, progressBarInsets.top, barRectWidth, barRectHeight, boxRect.y, boxRect.height);
             }
         }
         config.restore();
