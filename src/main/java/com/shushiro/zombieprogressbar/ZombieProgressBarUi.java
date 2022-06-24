@@ -130,10 +130,9 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
 
         Icon scaledIcon = velocity > 0 ? iconForward: iconReversed;
 
-        scaledIcon.paintIcon(progressBar, progressBarRectangle, offset2 - JBUIScale.scale(10), -JBUIScale.scale(2));
-
         progressBarRectangle.draw(new RoundRectangle2D.Float(1f, 1f, w - 2f - 1f, h - 2f -1f, R, R));
         progressBarRectangle.translate(0, -(c.getHeight() - h) / 2);
+        scaledIcon.paintIcon(progressBar, progressBarRectangle, offset2 - JBUIScale.scale(10), -JBUIScale.scale(2));
 
         // Deal with possible text painting
         if (progressBar.isStringPainted()) {
