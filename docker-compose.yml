@@ -1,0 +1,17 @@
+services:
+  builder:
+    image: eclipse-temurin:17-jdk
+    user: "${UID:-1000}:${GID:-1000}"
+    userns_mode: host
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    environment:
+      # Keep Gradle cache inside the container, not in the project
+      - GRADLE_USER_HOME=/tmp/gradle-cache
+    command: ["./gradlew", "--version"]
+

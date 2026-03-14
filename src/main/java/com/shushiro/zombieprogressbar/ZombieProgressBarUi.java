@@ -132,7 +132,9 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
 
         progressBarRectangle.draw(new RoundRectangle2D.Float(1f, 1f, w - 2f - 1f, h - 2f -1f, R, R));
         progressBarRectangle.translate(0, -(c.getHeight() - h) / 2);
-        scaledIcon.paintIcon(progressBar, progressBarRectangle, offset2 - JBUIScale.scale(10), -JBUIScale.scale(2));
+        int iconH = scaledIcon.getIconHeight();
+        int iconYIndeterminate = (c.getHeight() - h) / 2 + Math.max(0, h - iconH);
+        scaledIcon.paintIcon(progressBar, progressBarRectangle, offset2 - JBUIScale.scale(10), iconYIndeterminate);
 
         // Deal with possible text painting
         if (progressBar.isStringPainted()) {
@@ -192,7 +194,9 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
 
         g2.setPaint(BLOODRED);
 
-        iconForward.paintIcon(progressBar, g2, amountFull - JBUIScale.scale(7), -JBUIScale.scale(2));
+        int iconH = iconForward.getIconHeight();
+        int iconYDeterminate = Math.max(0, progressBarHeight - iconH);
+        iconForward.paintIcon(progressBar, g2, amountFull - JBUIScale.scale(7), iconYDeterminate);
         g2.fill(new RoundRectangle2D.Float(2f*off,2f*off, amountFull - JBUIScale.scale(5f), progressBarHeight - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
         g2.translate(0, -(c.getHeight() - progressBarHeight)/2);
 

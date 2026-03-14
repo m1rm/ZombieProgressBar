@@ -1,42 +1,56 @@
 plugins {
     id("java")
-    id("org.jetbrains.intellij") version "1.5.2"
+    id("org.jetbrains.intellij.platform") version "2.13.0"
 }
 
-group = "com.zombieProgressBar"
-version = "1.0-SNAPSHOT"
+group = "com.m1rm"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
-// Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-intellij {
-    version.set("2021.2")
-    type.set("IC") // Target IDE Platform
-
-    plugins.set(listOf(/* Plugin Dependencies */))
+dependencies {
+    intellijPlatform {
+        intellijIdea("2022.3")
+    }
 }
 
-tasks {
-    // Set the JVM compatibility versions
-    withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
-    }
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
-    patchPluginXml {
-        sinceBuild.set("212")
-        untilBuild.set("222.*")
+intellijPlatform {
+    pluginConfiguration {
+        ideaVersion {
+            sinceBuild.set("223")
+            untilBuild.set(provider { null })
+        }
+        changeNotes.set(
+            """
+            <h3>1.1.0</h3>
+            <ul>
+              <li>Fixed zombie position: no more cut-off head; feet sit on the progress bar.</li>
+              <li>Compatibility: IntelliJ and JetBrains IDEs 2022.3 and later.</li>
+              <li>Build: IntelliJ Platform Gradle Plugin 2.x, Gradle 9, Java 17.</li>
+            </ul>
+            """.trimIndent()
+        )
     }
+    publishing {
+        token.set(providers.environmentVariable("PUBLISH_TOKEN"))
+    }
+    signing {
+        certificateChain.set(providers.environmentVariable("CERTIFICATE_CHAIN"))
+        privateKey.set(providers.environmentVariable("PRIVATE_KEY"))
+        password.set(providers.environmentVariable("PRIVATE_KEY_PASSWORD"))
+    }
+}
 
-    signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
-    }
-
-    publishPlugin {
-        token.set(System.getenv("PUBLISH_TOKEN"))
-    }
+tasks.withType<JavaCompile>().configureEach {
+    options.release.set(17)
 }
