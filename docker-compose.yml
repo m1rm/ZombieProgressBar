@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  builder:
+    image: eclipse-temurin:17-jdk
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+      - gradle-cache:/root/.gradle
+    environment:
+      # Gradle in non-interactive mode
+      - GRADLE_USER_HOME=/root/.gradle
+    # Default command can be overridden by `docker compose run`
+    command: ["./gradlew", "--version"]
+
+volumes:
+  gradle-cache:
+

@@ -16,7 +16,7 @@ public class ZombieProgressListener implements LafManagerListener, DynamicPlugin
 
     public ZombieProgressListener() {
         updateProgressBarUi();
-        pluginId = PluginId.getId("shushiro.zombieprogressbar");
+        pluginId = PluginId.getId("com.shushiro.zombieprogressbar");
     }
 
     static void updateProgressBarUi() {
