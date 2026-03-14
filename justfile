@@ -1,5 +1,9 @@
 set shell := ["bash", "-cu"]
 
+# Run Docker as local user so build/.gradle are owned by you
+export UID := `id -u`
+export GID := `id -g`
+
 [private]
 default:
 	just --list
