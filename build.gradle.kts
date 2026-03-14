@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.intellij.platform") version "2.13.0"
 }
 
-group = "com.shushiro"
+group = "com.m1rm"
 version = "1.1.0"
 
 repositories {
@@ -30,6 +30,16 @@ intellijPlatform {
             sinceBuild.set("223")
             untilBuild.set(provider { null })
         }
+        changeNotes.set(
+            """
+            <h3>1.1.0</h3>
+            <ul>
+              <li>Fixed zombie position: no more cut-off head; feet sit on the progress bar.</li>
+              <li>Compatibility: IntelliJ and JetBrains IDEs 2022.3 and later.</li>
+              <li>Build: IntelliJ Platform Gradle Plugin 2.x, Gradle 9, Java 17.</li>
+            </ul>
+            """.trimIndent()
+        )
     }
     publishing {
         token.set(providers.environmentVariable("PUBLISH_TOKEN"))
