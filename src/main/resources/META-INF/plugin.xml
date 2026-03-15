@@ -3,7 +3,8 @@
     <name>ZombieProgressBar</name>
     <vendor url="https://github.com/m1rm">Miriam Müller</vendor>
     <description><![CDATA[
-    A simple Zombie Progress Bar for IntelliJ & IntelliJ based IDEs.
+    A zombie progress bar for IntelliJ and JetBrains IDEs. Replaces the default progress bar with a walking zombie.
+    <p><img src="https://raw.githubusercontent.com/m1rm/ZombieProgressBar/main/src/main/resources/barScreenshot" alt="Zombie progress bar preview" width="600"/></p>
   ]]></description>
     <depends>com.intellij.modules.platform</depends>
     <applicationListeners>
