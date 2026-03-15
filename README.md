@@ -25,6 +25,6 @@ The IntelliJ Platform Gradle Plugin also creates a local cache folder named `.in
 Contributions are very welcome on this project! Contributions can take the form of bug reports, feature requests, zombie/survivor requests or more!
 
 ## Acknowledgements
-Made possible by and based on: 
+Inspired by: 
 - [Law Millenium](https://github.com/law-millenium)'s great [Naruto Progress Bar](https://github.com/law-millenium/naruto-progress)
 - [Nyan Cat Plugin](https://github.com/batya239/NyanProgressBar) by Dmitry Batkovich.
