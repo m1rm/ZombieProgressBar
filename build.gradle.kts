@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.m1rm"
-version = "1.1.0"
+version = "1.1.1"
 
 repositories {
     mavenCentral()
@@ -37,6 +37,10 @@ intellijPlatform {
               <li>Fixed zombie position: no more cut-off head; feet sit on the progress bar.</li>
               <li>Compatibility: IntelliJ and JetBrains IDEs 2022.3 and later.</li>
               <li>Build: IntelliJ Platform Gradle Plugin 2.x, Gradle 9, Java 17.</li>
+            </ul>
+            <h3>1.1.1</h3>
+            <ul>
+              <li>Compatibility: Fix incompatibility warning in Marketplace.</li>
             </ul>
             """.trimIndent()
         )
