@@ -9,6 +9,9 @@ My take on a lovely zombie progress bar for IntelliJ and IntelliJ based IDEs.
 **Compatibility:** IntelliJ IDEA and other JetBrains IDEs 2022.3 and later.
 
 ## Installation
+
+Get it via the Jetbrains Marketplace: https://plugins.jetbrains.com/plugin/30702-zombieprogressbar
+
 ### Build Locally Using Docker + just (no local Java/Gradle)
 **Requirements:**
 - [docker compose](https://docs.docker.com/compose/)
