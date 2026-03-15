@@ -41,6 +41,7 @@ intellijPlatform {
             <h3>1.1.1</h3>
             <ul>
               <li>Compatibility: Fix incompatibility warning in Marketplace.</li>
+              <li>UX: Fix preview image.</li>
             </ul>
             """.trimIndent()
         )
