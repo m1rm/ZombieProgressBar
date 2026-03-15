@@ -1,4 +1,4 @@
-package com.shushiro.zombieprogressbar;
+package com.m1rm.zombieprogressbar;
 
 import javax.swing.*;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.shushiro.zombieprogressbar;
+package com.m1rm.zombieprogressbar;
 
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.ui.Gray;
@@ -259,4 +259,3 @@ public class ZombieProgressBarUi extends BasicProgressBarUI {
         return value % 2 != 0;
     }
 }
-

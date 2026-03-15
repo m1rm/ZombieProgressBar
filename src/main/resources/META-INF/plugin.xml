@@ -7,8 +7,8 @@
   ]]></description>
     <depends>com.intellij.modules.platform</depends>
     <applicationListeners>
-        <listener class="com.shushiro.zombieprogressbar.ZombieProgressListener" topic="com.intellij.ide.ui.LafManagerListener"/>
-        <listener class="com.shushiro.zombieprogressbar.ZombieProgressListener"
+        <listener class="com.m1rm.zombieprogressbar.ZombieProgressListener" topic="com.intellij.ide.ui.LafManagerListener"/>
+        <listener class="com.m1rm.zombieprogressbar.ZombieProgressListener"
                   topic="com.intellij.ide.plugins.DynamicPluginListener"/>
     </applicationListeners>
     <extensions defaultExtensionNs="com.intellij">
