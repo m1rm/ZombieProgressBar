@@ -2,7 +2,7 @@
 
 ## Preview
 
-![Zombie progress bar in action](src/main/resources/barScreenshot "ZombieProgressBar")
+![Zombie progress bar in action](src/main/resources/barScreenshot.png "ZombieProgressBar")
 
 My take on a lovely zombie progress bar for IntelliJ and IntelliJ based IDEs.  
 
