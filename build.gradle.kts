@@ -1,10 +1,10 @@
 plugins {
     id("java")
-    id("org.jetbrains.intellij.platform") version "2.13.0"
+    id("org.jetbrains.intellij.platform") version "2.13.1"
 }
 
 group = "com.m1rm"
-version = "1.1.1"
+version = "1.1.2"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        intellijIdea("2022.3")
+        intellijIdea("2025.2.6.1")
     }
 }
 
@@ -26,9 +26,13 @@ java {
 
 intellijPlatform {
     pluginConfiguration {
+        vendor {
+            name.set("Miriam Müller")
+            url.set("https://github.com/m1rm")
+        }
         ideaVersion {
             sinceBuild.set("223")
-            untilBuild.set("253.*")
+            untilBuild.set(providers.provider { null })
         }
         changeNotes.set(
             """
@@ -42,6 +46,11 @@ intellijPlatform {
             <ul>
               <li>Compatibility: Fix incompatibility warning in Marketplace.</li>
               <li>UX: Fix preview image.</li>
+            </ul>
+            <h3>1.1.2</h3>
+            <ul>
+              <li>Compatibility: No until-build ceiling; supports the latest JetBrains IDEs.</li>
+              <li>Build against IntelliJ Platform 2025.2; vendor metadata set in Gradle for Marketplace consistency.</li>
             </ul>
             """.trimIndent()
         )
