@@ -15,7 +15,6 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        // Compile and run IDE against a current platform; runtime range is controlled by ideaVersion below.
         intellijIdea("2025.2.6.1")
     }
 }
@@ -33,7 +32,6 @@ intellijPlatform {
         }
         ideaVersion {
             sinceBuild.set("223")
-            // No upper bound — compatible with current and future IDE releases (see IPGP docs: untilBuild provider null).
             untilBuild.set(providers.provider { null })
         }
         changeNotes.set(
