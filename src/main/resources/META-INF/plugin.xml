@@ -12,6 +12,4 @@
         <listener class="com.m1rm.zombieprogressbar.ZombieProgressListener"
                   topic="com.intellij.ide.plugins.DynamicPluginListener"/>
     </applicationListeners>
-    <extensions defaultExtensionNs="com.intellij">
-    </extensions>
 </idea-plugin>
