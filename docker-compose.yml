@@ -1,6 +1,6 @@
 services:
   builder:
-    image: eclipse-temurin:17-jdk
+    image: eclipse-temurin:21-jdk
     user: "${UID:-1000}:${GID:-1000}"
     userns_mode: host
     cap_drop:
@@ -10,8 +10,23 @@ services:
     working_dir: /workspace
     volumes:
       - ./:/workspace
+      # Persist the Gradle home (incl. downloaded IDEs) between runs; ignored by Git
+      - ./.gradle-docker:/gradle-home
     environment:
-      # Keep Gradle cache inside the container, not in the project
-      - GRADLE_USER_HOME=/tmp/gradle-cache
+      - GRADLE_USER_HOME=/gradle-home
     command: ["./gradlew", "--version"]
 
+  # Like builder, but able to open the sandbox IDE on the host's X11/Xwayland display
+  ide:
+    extends:
+      service: builder
+    build: ./docker/ide
+    image: zombieprogressbar-ide
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - XAUTHORITY=/tmp/.Xauthority
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      # X server auth cookie, required e.g. by Xwayland on GNOME
+      # (the fallback only keeps plain `docker compose` commands working when it is unset)
+      - ${XAUTHORITY:-/dev/null}:/tmp/.Xauthority:ro
